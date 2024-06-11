@@ -25,18 +25,21 @@ export default function CampList() {
   return (
     <section>
       <ul className={css.list}>
-        {adverts.map(({ id, gallery, name, price, rating, location, description, details }) => (
-          <CampItem
-            key={id}
-            gallery={gallery}
-            name={name}
-            price={price}
-            rating={rating}
-            location={location}
-            description={description}
-            details={details}
-          />
-        ))}
+        {adverts.map(
+          ({ id, gallery, name, price, rating, location, description, details, reviews }) => (
+            <CampItem
+              key={id}
+              gallery={gallery}
+              name={name}
+              price={price}
+              rating={rating}
+              location={location}
+              description={description}
+              details={details}
+              reviews={reviews}
+            />
+          )
+        )}
       </ul>
     </section>
   );

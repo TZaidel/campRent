@@ -1,7 +1,19 @@
 import sprite from '/svg/sprite.svg';
 import css from './CampItem.module.css';
 
-export default function CampItem({ gallery, name, price, rating, location, description, details }) {
+export default function CampItem({
+  gallery,
+  name,
+  price,
+  rating,
+  location,
+  description,
+  details,
+  reviews,
+}) {
+  const reviewsCount = Array.isArray(reviews) ? reviews.length : 0;
+  console.log(reviewsCount);
+
   return (
     <li className={css.item}>
       <div className={css.imageWrap}>
@@ -24,15 +36,20 @@ export default function CampItem({ gallery, name, price, rating, location, descr
         </div>
 
         <div className={css.infoWrap}>
-          <svg width="16" height="16">
-            <use xlinkHref={`${sprite}#icon-star`}></use>
-          </svg>
-          <p className={css.rating}>{rating}</p>
+          <div className={css.ratingWrap}>
+            <svg width="16" height="16">
+              <use xlinkHref={`${sprite}#icon-star`}></use>
+            </svg>
+            <p className={css.rating}>{rating}</p>
+            {reviewsCount > 0 ? <p>({reviewsCount} reviews)</p> : <p>no reviews</p>}
+          </div>
 
-          <svg width="16" height="16">
-            <use xlinkHref={`${sprite}#icon-map`}></use>
-          </svg>
-          <p className={css.location}>{location}</p>
+          <div className={css.locationWrap}>
+            <svg width="16" height="16">
+              <use xlinkHref={`${sprite}#icon-map`}></use>
+            </svg>
+            <p className={css.location}>{location}</p>
+          </div>
         </div>
         <div className={css.descriptionWrap}>
           <p className={css.description}>{description}</p>
