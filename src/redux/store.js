@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import campsReducer from './campsSlice'
 
-const store = configureStore({
+export default configureStore({
   reducer: {
-    camps: campsReducer
-  }
-})
+    camps: campsReducer,
+  },
+});
 
-export default store
+ 
