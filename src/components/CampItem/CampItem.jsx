@@ -15,8 +15,12 @@ export default function CampItem({
   details,
   reviews,
 }) {
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
   const reviewsCount = Array.isArray(reviews) ? reviews.length : 0;
+    
+  const favoriteItems = useSelector(state => state.camps.favoriteItems)
+
+  const isFavorite = favoriteItems.some(item=> item._id ===_id)
 
   const handleToggleFavorite = () => {
     dispatch(toggleFavoriteItem(_id));
@@ -38,7 +42,7 @@ export default function CampItem({
 
           <button className={css.likeBtn} onClick={handleToggleFavorite}>
             <svg width="24" height="24">
-              <use xlinkHref={`${sprite}#icon-like`}></use>
+              <use xlinkHref={`${sprite}#icon-${isFavorite ? 'like' : 'map'}`}></use>
             </svg>
           </button>
         </div>

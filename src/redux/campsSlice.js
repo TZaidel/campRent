@@ -12,18 +12,17 @@ const slice = createSlice({
   reducers: {
     toggleFavoriteItem: (state, action) => {
       const id = action.payload;
-      const index = state.items.findIndex(item => item._id === id);
-      if (index !== -1) {
-        const item = state.items[index];
-        if (state.favoriteItems.some(favItem => favItem._id === id)) {
-          state.favoriteItems.filter(favItem => favItem._id !== id);
+      const item = state.items.find(item => item._id === id);
+      if (item) {
+        const isFavorite = state.favoriteItems.some(favItem => favItem._id === id);
+        if (isFavorite) {
+          state.favoriteItems = state.favoriteItems.filter(favItem => favItem._id !== id);
         } else {
           state.favoriteItems.push(item);
         }
       }
     },
   },
-
   extraReducers: builder =>
     builder
       .addCase(fetchCamps.pending, (state, action) => {

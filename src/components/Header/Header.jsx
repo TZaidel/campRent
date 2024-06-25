@@ -9,7 +9,7 @@ export default function Header() {
   }
 
   return (
-    <section>
+    <section className={css.section}>
       <nav className={css.nav}>
         <NavLink to="/" className={linkClass}>
           Home
