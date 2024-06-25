@@ -7,11 +7,6 @@ import CampItem from '../CampItem/CampItem';
 import css from './CampList.module.css';
 
 export default function CampList({ items }) {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchCamps());
-  }, [dispatch]);
 
   return (
     <section>

@@ -1,4 +1,4 @@
-import { fetchCamps } from './operations';
+import { fetchCamps, toggleFavoriteCamp } from './operations';
 import { createSlice } from '@reduxjs/toolkit';
 
 const slice = createSlice({
@@ -11,15 +11,19 @@ const slice = createSlice({
   },
   reducers: {
     toggleFavoriteItem: (state, action) => {
-      const camp = action.payload;
-      const index = state.favoriteItems.findIndex(item => item.id === camp.id);
+      const id = action.payload;
+      const index = state.items.findIndex(item => item._id === id);
       if (index !== -1) {
-        state.favoriteItems.splice(index, 1);
-      } else {
-        state.favoriteItems.push(camp);
+        const item = state.items[index];
+        if (state.favoriteItems.some(favItem => favItem._id === id)) {
+          state.favoriteItems.filter(favItem => favItem._id !== id);
+        } else {
+          state.favoriteItems.push(item);
+        }
       }
     },
   },
+
   extraReducers: builder =>
     builder
       .addCase(fetchCamps.pending, (state, action) => {
@@ -28,8 +32,12 @@ const slice = createSlice({
       })
       .addCase(fetchCamps.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = action.payload;
+        state.items = action.payload.map(item => ({
+          ...item,
+          favorite: false,
+        }));
       })
+
       .addCase(fetchCamps.rejected, (state, action) => {
         state.error = true;
         state.loading = false;

@@ -2,10 +2,10 @@ import sprite from '/svg/sprite.svg';
 import css from './CampItem.module.css';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleFavoriteItem } from '../../redux/campsSlice.js'
+import { toggleFavoriteItem } from '../../redux/campsSlice.js';
 
 export default function CampItem({
-  id,
+  _id,
   gallery,
   name,
   price,
@@ -15,31 +15,12 @@ export default function CampItem({
   details,
   reviews,
 }) {
-
- const camp = {
-     id,
-     gallery,
-     name,
-     price,
-     rating,
-     location,
-     description,
-     details,
-     reviews,
-   }
-
   const dispatch = useDispatch();
   const reviewsCount = Array.isArray(reviews) ? reviews.length : 0;
-  
-  const favoriteItems = useSelector(state => state.camps.favoriteItems)
 
-  const isFavorite = favoriteItems.some(item=> item.id ===id)
-
-  const toggleFavorite = camp => e => {
-    console.log(e)
-    dispatch(toggleFavoriteItem(camp))
-  }
-
+  const handleToggleFavorite = () => {
+    dispatch(toggleFavoriteItem(_id));
+  };
 
   return (
     <li className={css.item}>
@@ -55,9 +36,9 @@ export default function CampItem({
           <h2 className={css.name}>{name}</h2>
           <p className={css.name}>€{price}.00</p>
 
-          <button className={css.likeBtn} onClick={toggleFavorite}>
+          <button className={css.likeBtn} onClick={handleToggleFavorite}>
             <svg width="24" height="24">
-              <use xlinkHref={`${sprite}#icon-${isFavorite ?  'like' : 'map'}`}></use>
+              <use xlinkHref={`${sprite}#icon-like`}></use>
             </svg>
           </button>
         </div>

@@ -12,26 +12,6 @@ export const fetchCamps = createAsyncThunk('camps/fetch', async (_, thunkAPI) =>
   }
 });
 
-export const addFavoriteCamp = createAsyncThunk('camps/add', async (data, thunkAPI) => {
-  try {
-    // Simulate adding to favorites with a POST request if needed
-    // const response = await axios.post('/adverts', data);
-    // return response.data;
-    thunkAPI.dispatch(toggleFavoriteItem(data)); // Directly dispatch toggleFavoriteItem for simulation
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
-  }
-});
-
-
-// export const addFavoriteCamp = createAsyncThunk('camps/add', async (data, thunkAPI) => {
-//   try {
-//     const response = await axios.post('/adverts', data)
-//     console.log(response.data)
-//     return response.data
-//   }
-//   catch (error) {
-//     return thunkAPI.rejectWithValue(error.message);
-    
-//   }
-// })
+export const toggleFavoriteCamp = () => {
+  
+}

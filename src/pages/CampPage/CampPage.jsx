@@ -14,7 +14,8 @@ export default function CampPage() {
   useEffect(() => {
     dispatch(fetchCamps());
   }, [dispatch]);
-
+  console.log(items);
+  
   return (
     <div className={style.container}>
       <Header />
