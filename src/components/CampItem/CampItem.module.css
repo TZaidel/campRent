@@ -20,6 +20,25 @@
   object-position: 80%;
 }
 
+.likeBtn {
+  background-color: transparent;
+}
+
+.iconLike {
+  stroke: var(--main-color);
+  fill: transparent;
+  transition: ease-in-out;
+}
+
+.iconLike:hover{
+  fill: var(--accent-color);
+}
+
+.iconMap{
+  fill: transparent;
+  stroke: var(--main-color);
+}
+
 .nameWrap {
   display: flex;
   justify-content: space-between;
@@ -69,10 +88,15 @@
 .detailsList {
   display: flex;
   gap: 8px;
+  width: 500px;
+  overflow: hidden;
 }
 
 .detailsItem {
-  border-radius: 100px;
+display: flex; 
+gap: 8px;
+align-items: center;
+border-radius: 100px;
   padding: 12px 18px;
   background: #f2f4f7;
 }
@@ -82,9 +106,20 @@
   font-size: 16px;
   line-height: 1.2;
 }
+
+.iconDetails{
+  fill: transparent;
+  stroke: var(--main-color);
+}
+
 .moreBtn {
   border-radius: 200px;
   padding: 16px 40px;
   background-color: var(--accent-color);
   color: var(--white-color);
+}
+
+.moreBtn:hover{
+    background-color: var(--gray-color);
+
 }

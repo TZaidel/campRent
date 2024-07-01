@@ -15,12 +15,27 @@ export default function CampItem({
   details,
   reviews,
 }) {
-    const dispatch = useDispatch();
-  const reviewsCount = Array.isArray(reviews) ? reviews.length : 0;
-    
-  const favoriteItems = useSelector(state => state.camps.favoriteItems)
 
-  const isFavorite = favoriteItems.some(item=> item._id ===_id)
+  const detailIcons = {
+    water: 'water',
+    adults: 'adults',
+    CD: 'cd',
+    TV: 'tv',
+    airConditioner: 'conditioner',
+    bathroom: 'bathroom',
+    beds: 'bed',
+    freezer: 'freezer',
+    gas: 'gas',
+    kitchen: 'kitchen',
+  shower: 'shower'    
+  };
+    
+  const dispatch = useDispatch();
+  const reviewsCount = Array.isArray(reviews) ? reviews.length : 0;
+
+  const favoriteItems = useSelector(state => state.camps.favoriteItems);
+
+  const isFavorite = favoriteItems.some(item => item._id === _id);
 
   const handleToggleFavorite = () => {
     dispatch(toggleFavoriteItem(_id));
@@ -41,8 +56,8 @@ export default function CampItem({
           <p className={css.name}>€{price}.00</p>
 
           <button className={css.likeBtn} onClick={handleToggleFavorite}>
-            <svg width="24" height="24">
-              <use xlinkHref={`${sprite}#icon-${isFavorite ? 'like' : 'map'}`}></use>
+            <svg width="24" height="24" className={css.iconLike}>
+              <use xlinkHref={`${sprite}#icon-${isFavorite ? 'like-red' : 'like'}`}></use>
             </svg>
           </button>
         </div>
@@ -57,7 +72,7 @@ export default function CampItem({
           </div>
 
           <div className={css.locationWrap}>
-            <svg width="16" height="16">
+            <svg width="16" height="16" className={css.iconMap}>
               <use xlinkHref={`${sprite}#icon-map`}></use>
             </svg>
             <p className={css.location}>{location}</p>
@@ -67,12 +82,15 @@ export default function CampItem({
           <p className={css.description}>{description}</p>
         </div>
         <ul className={css.detailsList}>
-          {/* {details.map(({ bathroom }) => (
-            <p>{bathroom}</p>
-))} */}
-          <li className={css.detailsItem}>
-            <p className={css.detailsItemName}>bathroom</p>
-          </li>
+          {Object.entries(details).map(([key, value]) => (
+            <li key={key} className={css.detailsItem}>
+              <svg width="16" height="16" className={css.iconDetails}>
+                <use xlinkHref={`${sprite}#icon-${detailIcons[key] || 'icon-like'}`}></use>
+              </svg>
+              <p className={css.detailsItemName}>{value}</p>
+              <p>{key}</p>
+            </li>
+          ))}
         </ul>
         <button className={css.moreBtn}>Show more</button>
       </div>

@@ -1,0 +1,43 @@
+.embla {
+  margin-top: 30px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -2;
+  /* max-width: 48rem; */
+}
+
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  padding-bottom: 30px;
+  padding-top: 30px;
+  display: flex;
+  gap: 10px;
+  padding-left: 10px;
+}
+
+.embla__slide {
+  border-radius: 3px;
+  box-shadow: 5px 10px 15px rgba(41, 34, 34, 0.21);
+  flex: 0 0 50%;
+  overflow: hidden;
+}
+
+.img {
+  object-fit: cover;
+  object-position: bottom;
+  height: 100%;
+  width: 100%;
+}
+
+
+.rent__link{
+  color: var(--accent-color);
+  cursor: pointer;
+  text-decoration: underline;
+}

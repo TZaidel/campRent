@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { NavLink } from 'react-router-dom'
 
-import css from './Header.module.scss'
+import css from './Header.module.css'
 export default function Header() {
 
   const linkClass = ({ isActive }) => {
