@@ -38,11 +38,11 @@ export default function Hero() {
         </div>
       </div>
       {/* <p>We travel, some of us forever</p> */}
-      <p>Open your eyes to a new view every morning. </p>
+      <p className={css.description}>Open your eyes to a new view every morning. </p>
       {/* <p>Every journey has its secret destinations. Discover yours – rent a camp.</p> */}
       {/* <p>Live the adventure of a lifetime. Wake up to endless possibilities – rent a camp.</p> */}
       {/* <h1>To enjoy your trip better - rent a camp</h1> */}
-      <h1>Make your adventure seamless – <Link to='/catalog' className={css.rent__link}>rent a camp</Link></h1>
+      <h1 className={css.title}>Make your adventure seamless – <Link to='/catalog' className={css.rent__link}>rent a camp</Link></h1>
     </section>
   );
 }

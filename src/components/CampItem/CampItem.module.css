@@ -1,5 +1,6 @@
 .item {
   display: flex;
+  justify-content: center;
   gap: 24px;
   border: 1px solid rgba(16, 24, 40, 0.2);
   border-radius: 20px;
@@ -30,11 +31,13 @@
   transition: ease-in-out;
 }
 
-.iconLike:hover{
+.likeBtn:hover .iconLike,
+.likeBtn:focus .iconLike {
+  stroke: none;
   fill: var(--accent-color);
 }
 
-.iconMap{
+.iconMap {
   fill: transparent;
   stroke: var(--main-color);
 }
@@ -42,6 +45,7 @@
 .nameWrap {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 8px;
 }
 
@@ -49,6 +53,14 @@
   font-weight: 600;
   font-size: 24px;
   line-height: 125%;
+}
+
+.price {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 125%;
+  margin-right: 5px;
+  margin-left: auto;
 }
 
 .infoWrap {
@@ -72,6 +84,10 @@
   margin-left: 4px;
 }
 
+.filledStar {
+  fill: #ffc531;
+}
+
 .descriptionWrap {
   width: 500px;
   white-space: nowrap;
@@ -89,16 +105,21 @@
   display: flex;
   gap: 8px;
   width: 500px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-height: 104px;
   overflow: hidden;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 .detailsItem {
-display: flex; 
-gap: 8px;
-align-items: center;
-border-radius: 100px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  border-radius: 100px;
   padding: 12px 18px;
-  background: #f2f4f7;
+  background-color: #f2f4f7;
 }
 
 .detailsItemName {
@@ -107,7 +128,7 @@ border-radius: 100px;
   line-height: 1.2;
 }
 
-.iconDetails{
+.iconDetails {
   fill: transparent;
   stroke: var(--main-color);
 }
@@ -119,7 +140,31 @@ border-radius: 100px;
   color: var(--white-color);
 }
 
-.moreBtn:hover{
-    background-color: var(--gray-color);
-
+.moreBtn:hover {
+  background-color: var(--gray-color);
 }
+
+/* .backdrop{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 5;
+  background-color: palevioletred;
+  width: 100%;
+  height: 100%;
+} */
+
+/* .backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */

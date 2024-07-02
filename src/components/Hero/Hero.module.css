@@ -35,9 +35,20 @@
   width: 100%;
 }
 
-
-.rent__link{
+.rent__link {
   color: var(--accent-color);
   cursor: pointer;
   text-decoration: underline;
+}
+
+.description {
+  color: var(--gray-color);
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.title {
+  color: var(--main-color);
+  font-size: 24px;
+  text-transform: uppercase;
 }

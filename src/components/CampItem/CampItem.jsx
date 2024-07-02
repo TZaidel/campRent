@@ -1,35 +1,49 @@
 import sprite from '/svg/sprite.svg';
 import css from './CampItem.module.css';
 
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleFavoriteItem } from '../../redux/campsSlice.js';
+import ModalCamp from '../ModalCamp/ModalCamp';
 
-export default function CampItem({
-  _id,
-  gallery,
-  name,
-  price,
-  rating,
-  location,
-  description,
-  details,
-  reviews,
-}) {
+export default function CampItem(camp) {
+  const { _id, gallery, name, price, rating, location, description, details, reviews, adults } =
+    camp;
+
+  const [modalShow, setModalShow] = useState(false);
+  const validKeys = new Set([
+    'water',
+    'bathroom',
+    'beds',
+    'shower',
+    'toilet',
+    'kitchen',
+    'airConditioner',
+    'freezer',
+    'microwave',
+    'radio',
+    'hob',
+    'gas',
+    'TV',
+    'CD',
+  ]);
 
   const detailIcons = {
     water: 'water',
     adults: 'adults',
-    CD: 'cd',
+    CD: 'CD',
     TV: 'tv',
-    airConditioner: 'conditioner',
-    bathroom: 'bathroom',
-    beds: 'bed',
+    airConditioner: 'airConditioner',
+    beds: 'beds',
     freezer: 'freezer',
     gas: 'gas',
     kitchen: 'kitchen',
-  shower: 'shower'    
+    shower: 'shower',
+    bathroom: 'shower',
+    radio: 'radio',
+    toilet: 'wc',
   };
-    
+
   const dispatch = useDispatch();
   const reviewsCount = Array.isArray(reviews) ? reviews.length : 0;
 
@@ -53,7 +67,7 @@ export default function CampItem({
       <div className={css.mainInfoWrap}>
         <div className={css.nameWrap}>
           <h2 className={css.name}>{name}</h2>
-          <p className={css.name}>€{price}.00</p>
+          <p className={css.price}>€{price}.00</p>
 
           <button className={css.likeBtn} onClick={handleToggleFavorite}>
             <svg width="24" height="24" className={css.iconLike}>
@@ -64,7 +78,7 @@ export default function CampItem({
 
         <div className={css.infoWrap}>
           <div className={css.ratingWrap}>
-            <svg width="16" height="16">
+            <svg width="16" height="16" className={css.filledStar}>
               <use xlinkHref={`${sprite}#icon-star`}></use>
             </svg>
             <p className={css.rating}>{rating}</p>
@@ -82,18 +96,35 @@ export default function CampItem({
           <p className={css.description}>{description}</p>
         </div>
         <ul className={css.detailsList}>
-          {Object.entries(details).map(([key, value]) => (
-            <li key={key} className={css.detailsItem}>
-              <svg width="16" height="16" className={css.iconDetails}>
-                <use xlinkHref={`${sprite}#icon-${detailIcons[key] || 'icon-like'}`}></use>
-              </svg>
-              <p className={css.detailsItemName}>{value}</p>
-              <p>{key}</p>
-            </li>
-          ))}
+          <li className={css.detailsItem}>
+            <svg width="20" height="20" className={css.iconDetails}>
+              <use xlinkHref={`${sprite}#icon-adults`}></use>
+            </svg>
+            <p className={css.detailsItemName}>adults: {adults}</p>
+          </li>
+          {Object.entries(details)
+            .filter(([key, value]) => validKeys.has(key) && value)
+            .map(([key, value]) => (
+              <li key={key} className={css.detailsItem}>
+                <svg width="20" height="20" className={css.iconDetails}>
+                  <use xlinkHref={`${sprite}#icon-${detailIcons[key] || 'icon-like'}`}></use>
+                </svg>
+                <p className={css.detailsItemName}>{value}</p>
+                <p>{key}</p>
+              </li>
+            ))}
         </ul>
-        <button className={css.moreBtn}>Show more</button>
+        <button
+          className={css.moreBtn}
+          onClick={() => {
+            console.log(_id);
+            setModalShow(true);
+          }}
+        >
+          Show more
+        </button>
       </div>
+      {modalShow && <ModalCamp camp={camp} show={modalShow} onHide={() => setModalShow(false)} />}
     </li>
   );
 }
