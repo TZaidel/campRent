@@ -1,12 +1,28 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import BookingForm from '../BookingForm/BookingForm';
 import sprite from '/svg/sprite.svg';
 import { useState } from 'react';
-
 import css from './ModalCamp.module.css';
 
 export default function ModalCamp({ show, onHide, camp }) {
-  const { name, price, description, reviews, location, gallery, rating, adults, details } = camp;
+  const {
+    name,
+    price,
+    description,
+    reviews,
+    location,
+    gallery,
+    rating,
+    adults,
+    details,
+    consumption,
+    form,
+    height,
+    width,
+    tank,
+    length,
+  } = camp;
   console.log(camp);
 
   const validKeys = new Set([
@@ -47,7 +63,7 @@ export default function ModalCamp({ show, onHide, camp }) {
 
   const reviewsCount = Array.isArray(reviews) ? reviews.length : 0;
 
-  const renderRatingIcons = (rating) => {
+  const renderRatingIcons = rating => {
     return (
       <div className={css.ratingIcon}>
         {[...Array(5)].map((_, i) => (
@@ -62,7 +78,7 @@ export default function ModalCamp({ show, onHide, camp }) {
         ))}
       </div>
     );
-  }
+  };
 
   return (
     <Modal
@@ -117,7 +133,7 @@ export default function ModalCamp({ show, onHide, camp }) {
                 setFeatures(true);
                 setComments(false);
               }}
-              className={css.moreBtn}
+              className={`${css.moreBtn} ${features ? css.moreBtnActive : ''}`}
             >
               Features
             </button>
@@ -126,61 +142,93 @@ export default function ModalCamp({ show, onHide, camp }) {
                 setComments(true);
                 setFeatures(false);
               }}
-              className={css.moreBtn}
+              className={`${css.moreBtn} ${comments ? css.moreBtnActive : ''}`}
             >
               Reviews
             </button>
           </div>
-
-          {features && (
-            <div>
-              <ul className={css.detailsList}>
-                <li className={css.detailsItem}>
-                  <svg width="20" height="20" className={css.iconDetails}>
-                    <use xlinkHref={`${sprite}#icon-adults`}></use>
-                  </svg>
-                  <p className={css.detailsItemName}>adults: {adults}</p>
-                </li>
-                {Object.entries(details)
-                  .filter(([key, value]) => validKeys.has(key) && value)
-                  .map(([key, value]) => (
-                    <li key={key} className={css.detailsItem}>
+          <div className={css.infoBookWrap}>
+            <div className={css.infoWrap}>
+              {features && (
+                <div>
+                  <ul className={css.detailsList}>
+                    <li className={css.detailsItem}>
                       <svg width="20" height="20" className={css.iconDetails}>
-                        <use xlinkHref={`${sprite}#icon-${detailIcons[key] || 'icon-like'}`}></use>
+                        <use xlinkHref={`${sprite}#icon-adults`}></use>
                       </svg>
-                      <p className={css.detailsItemName}>{value}</p>
-                      <p>{key}</p>
+                      <p className={css.detailsItemName}>adults: {adults}</p>
+                    </li>
+                    {Object.entries(details)
+                      .filter(([key, value]) => validKeys.has(key) && value)
+                      .map(([key, value]) => (
+                        <li key={key} className={css.detailsItem}>
+                          <svg width="20" height="20" className={css.iconDetails}>
+                            <use
+                              xlinkHref={`${sprite}#icon-${detailIcons[key] || 'icon-like'}`}
+                            ></use>
+                          </svg>
+                          <p className={css.detailsItemName}>{value}</p>
+                          <p>{key}</p>
+                        </li>
+                      ))}
+                  </ul>
+
+                  <table className={css.infoTable}>
+                    <caption>Vehicle details</caption>
+                    <tr>
+                      <th>Form</th>
+                      <td>{form}</td>
+                    </tr>
+                    <tr>
+                      <th>Length</th>
+                      <td>{length}</td>
+                    </tr>
+                    <tr>
+                      <th>Width</th>
+                      <td>{width}</td>
+                    </tr>
+                    <tr>
+                      <th>Height</th>
+                      <td>{height}</td>
+                    </tr>
+                    <tr>
+                      <th>Tank</th>
+                      <td>{tank}</td>
+                    </tr>
+                    <tr>
+                      <th>Consumption</th>
+                      <td>{consumption}</td>
+                    </tr>
+                  </table>
+                </div>
+              )}
+
+              {comments && (
+                <ul className={css.reviewList}>
+                  {reviews.map(review => (
+                    <li key={review.reviewer_name} className={css.reviewItem}>
+                      <div className={css.reviewTitle}>
+                        <h3 className={css.reviewName}>{review.reviewer_name}</h3>
+
+                        <div className={css.reviewRating}>
+                          {renderRatingIcons(review.reviewer_rating)}
+                        </div>
+                      </div>
+                      <p className={css.reviewComment}>{review.comment}</p>
                     </li>
                   ))}
-              </ul>
-              <h3>Vehicle details</h3>
+                </ul>
+              )}
             </div>
-          )}
 
-          {comments && (
-            <ul className={css.reviewList}>
-              {reviews.map(review => (
-                <li key={review.reviewer_name} className={css.reviewItem}>
-                  <div className={css.reviewTitle}>
-                    <h3 className={css.reviewName}>{review.reviewer_name}</h3>
-
-                    <div className={css.reviewRating}>
-                      {renderRatingIcons(review.reviewer_rating)}
-                    </div>
-                  </div>
-                  <p className={css.reviewComment}>{review.comment}</p>
-                </li>
-              ))}
-            </ul>
-          )}
-
-          <div></div>
+            <BookingForm />
+          </div>
         </Modal.Body>
-        <Modal.Footer>
+        {/* <Modal.Footer>
           <Button onClick={onHide} className={css.closeBtn}>
             Close
           </Button>
-        </Modal.Footer>
+        </Modal.Footer> */}
       </div>
     </Modal>
   );
