@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import {toggleFavoriteItem} from './campsSlice'
 axios.defaults.baseURL = 'https://666756e0a2f8516ff7a72f05.mockapi.io';
 
 export const fetchCamps = createAsyncThunk('camps/fetch', async (_, thunkAPI) => {
@@ -12,6 +11,4 @@ export const fetchCamps = createAsyncThunk('camps/fetch', async (_, thunkAPI) =>
   }
 });
 
-export const toggleFavoriteCamp = () => {
-  
-}
+export const toggleFavoriteCamp = () => {};

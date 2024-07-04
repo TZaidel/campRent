@@ -49,10 +49,12 @@
 }
 
 .xBtn {
+  font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px;
+  height: 30px;
+  width: 30px;
   border-radius: 20px;
   transition: 0.3 ease-in-out;
 }
@@ -63,7 +65,7 @@
 }
 
 .title {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   margin-bottom: 10px;
 }
@@ -141,7 +143,6 @@
 .moreBtnActive {
   color: var(--accent-color);
 }
-
 
 /*FEATURES*/
 .detailsList {
@@ -322,12 +323,9 @@
     width: 430px;
   }
 
-  
-  .infoTable{
-      border-bottom:none;
-        margin-bottom: 0;
-
-
+  .infoTable {
+    border-bottom: none;
+    margin-bottom: 0;
   }
 }
 @media screen and (min-width: 1440px) {

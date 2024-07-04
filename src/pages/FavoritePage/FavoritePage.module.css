@@ -1,0 +1,23 @@
+.wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.descriptionWrap {
+}
+
+.iconLike{
+  fill: rgb(237, 237, 237);
+}
+
+.title{
+  margin-bottom: 10px;
+}
+
+.description{
+  color: var(--gray-color);
+  max-width: 380px;
+}

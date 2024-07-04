@@ -1,24 +1,37 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchCamps } from '../../redux/operations.js';
+import sprite from '../../../public/svg/sprite.svg'
 
 import Header from '../../components/Header/Header';
 import CampList from '../../components/CampList/CampList';
 
 import style from '../Base.module.css';
+import css from './FavoritePage.module.css';
 
 export default function FavoritePage() {
-  const dispatch = useDispatch();
+  const { favoriteItems } = useSelector(state => state.camps);
 
-  const { favoriteItems, loading, error } = useSelector(state => state.camps);
-console.log(favoriteItems)
-  
   return (
     <div className={style.container}>
       <Header />
-      {loading && <h2>Loading...</h2>}
-      {error && <h2> Error :(</h2>}
-      {favoriteItems.length > 0 ? <CampList items={favoriteItems} /> : <h2>No favorite camps</h2>}
+      <div className={css.wrap}>
+        {favoriteItems.length > 0 ? (
+          <CampList items={favoriteItems} />
+        ) : (
+          <div className={css.descriptionWrap}>
+            <svg width="200" height="200" className={css.iconLike}>
+              <use xlinkHref={`${sprite}#icon-like`}></use>
+            </svg>
+            <h2 className={css.title}>No favorites yet</h2>
+
+            <p className={css.description}>
+              Tap the heart on any pattern to make it favorite. All your favorites camps will appear
+              here
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -26,7 +26,12 @@ export default function CampPage() {
           <LineWave height="180" width="180" color="var(--accent-color)" />
         </div>
       )}
-      {error && <h2> Error :(</h2>}
+      {error && (
+        <div className={css.error}>
+          <h2>Oops! something went wrong :(</h2>
+          <p>Try again later</p>
+        </div>
+      )}
       {items.length > 0 && <CampList items={items} />}
     </div>
   );

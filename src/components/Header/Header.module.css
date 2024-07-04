@@ -7,12 +7,12 @@
 }
 
 .nav {
-  width: 50%;
+  width: 95%;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   justify-content: space-between;
-  z-index: 5;
+  z-index: 500;
 }
 
 .link {
@@ -29,4 +29,15 @@
 
 .active {
   color: var(--accent-color);
+}
+
+
+@media screen and (min-width: 768px) {
+.nav {
+  width: 80%;
+
+}
+}
+
+@media screen and (min-width: 1440px) {
 }
