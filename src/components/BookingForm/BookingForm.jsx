@@ -1,6 +1,6 @@
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-
+import axios from 'axios'
 import css from './BookingForm.module.css';
 
 export default function BookingForm() {
@@ -22,9 +22,24 @@ export default function BookingForm() {
         validationSchema={validationSchema}
         onSubmit={async values => {
           await new Promise(r => setTimeout(r, 500));
-          // alert(JSON.stringify(values.name, null, 2));
-          alert(`Thank you for booking ${values.name}!)`);
+            alert(` Thank you for booking ${values.name}! 
+  If you like this project, please write a message to 8tzaidel@gmail.com.
+  Have a nice day:)
+            `);
         }}
+        // onSubmit={async values => {
+        //   try {
+        //     const response = await axios.post('/send', values)
+        //     if (response.status === 200) {
+        //       alert('thanks for booking')
+        //     } else {
+        //       alert('smth went wrong')
+        //     }
+        //   } catch (error) {
+        //     alert('Error' + error.message)
+        //   }
+        // }}
+     
       >
         <Form className={css.form}>
           <Field name="name" placeholder="Name" className={css.formField} />
