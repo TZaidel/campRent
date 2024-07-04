@@ -27,19 +27,6 @@ export default function BookingForm() {
   Have a nice day:)
             `);
         }}
-        // onSubmit={async values => {
-        //   try {
-        //     const response = await axios.post('/send', values)
-        //     if (response.status === 200) {
-        //       alert('thanks for booking')
-        //     } else {
-        //       alert('smth went wrong')
-        //     }
-        //   } catch (error) {
-        //     alert('Error' + error.message)
-        //   }
-        // }}
-     
       >
         <Form className={css.form}>
           <Field name="name" placeholder="Name" className={css.formField} />
