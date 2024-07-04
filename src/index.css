@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet');
 
-:root{
+:root {
   --main-color: #101828;
   --gray-color: #475467;
-  --accent-color: #E44848;
-  --white-color: #f7f7f7
+  --accent-color: #e44848;
+  --white-color: #f7f7f7;
 }
 
-  body {
+body {
   font-family: Inter, sans-serif;
 }
 
-p{
-  font-size: 16px;
+p {
+  font-size: 14px;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.2;
 }
 
 h1,
@@ -23,7 +23,8 @@ h3,
 h4,
 h5,
 h6,
-p, ul {
+p,
+ul {
   margin: 0;
 }
 
@@ -51,4 +52,14 @@ img {
   display: block;
   /* max-width: 100%;
   height: auto; */
+}
+
+@media screen and (min-width: 768px) {
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+@media screen and (min-width: 1440px) {
 }

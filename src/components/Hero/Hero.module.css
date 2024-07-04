@@ -6,7 +6,6 @@
   top: 0;
   bottom: 0;
   z-index: -2;
-  /* max-width: 48rem; */
 }
 
 .embla__viewport {
@@ -24,7 +23,7 @@
 .embla__slide {
   border-radius: 3px;
   box-shadow: 5px 10px 15px rgba(41, 34, 34, 0.21);
-  flex: 0 0 50%;
+  flex: 0 0 100%;
   overflow: hidden;
 }
 
@@ -43,12 +42,35 @@
 
 .description {
   color: var(--gray-color);
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 8px;
+  text-align: center;
 }
 
 .title {
   color: var(--main-color);
-  font-size: 24px;
+  font-size: 16px;
   text-transform: uppercase;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 320px;
+}
+
+@media screen and (min-width: 768px) {
+  .embla__slide {
+    flex: 0 0 50%;
+  }
+
+  .description {
+    font-size: 18px;
+  }
+
+  .title {
+    font-size: 28px;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
 }

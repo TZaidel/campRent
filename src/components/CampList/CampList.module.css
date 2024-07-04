@@ -1,8 +1,30 @@
+.section{
+  width: 320px;
+  padding: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.list{
+  max-width: 100%;
+  margin-top: 30px;
+}
+
+@media screen and (min-width: 768px){
+  .section{
+  width: 768px;
+}
+
 .list{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 32px;
-  width: 100%;
+  /* max-width: 100%; */
   margin-top: 30px;
+}
+}
+
+@media screen and (min-width: 1440px){
+
 }

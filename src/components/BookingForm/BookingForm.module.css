@@ -1,18 +1,13 @@
 .formWrap {
-  display: flex;
-  flex-direction: column;
-  width: 448px;
   border: 1px solid rgba(16, 24, 40, 0.2);
   border-radius: 10px;
-  padding: 24px;
-  
+  padding: 14px;
 }
-
-
 
 .title {
   font-weight: 600;
   font-size: 20px;
+  font-size: 16px;
   line-height: 1.2;
   margin-bottom: 8px;
 }
@@ -20,15 +15,18 @@
 .caption {
   font-weight: 400;
   font-size: 16px;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--gray-color);
   margin-bottom: 24px;
+  margin-bottom: 14px;
 }
 
 .form {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  gap: 10px;
 }
 
 .formField {
@@ -36,33 +34,87 @@
   border: none;
   border-radius: 10px;
   padding: 18px;
+  padding: 12px;
   font-weight: 400;
   font-size: 16px;
+  font-size: 14px;
   line-height: 1.2;
   color: rgba(16, 24, 40, 0.6);
 }
 
-.comment{
+.comment {
   height: 150px;
+  height: 100px;
 }
 
-  .formField::placeholder{
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.2;
-  }
+.formField::placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
 .formButton {
   margin-bottom: 10px;
   margin-top: 20px;
+  margin-top: 10px;
   border-radius: 200px;
   padding: 16px 60px;
-  max-width: 160px;
+  padding: 12px 45px;
   background-color: var(--accent-color);
   font-weight: 500;
   font-size: 16px;
+  font-size: 14px;
   line-height: 1.5;
   letter-spacing: -0.01em;
   color: #fff;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .formWrap {
+    display: flex;
+    flex-direction: column;
+    width: 448px;
+    padding: 24px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .caption {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .form {
+    gap: 14px;
+  }
+
+  .formField {
+    padding: 18px;
+    font-size: 16px;
+  }
+
+  .comment {
+    height: 150px;
+  }
+
+  .formField::placeholder {
+    font-size: 16px;
+  }
+
+  .formButton {
+    margin-top: 20px;
+    padding: 16px 60px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .formWrap {
+    width: 448px;
+  }
 }

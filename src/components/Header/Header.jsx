@@ -1,12 +1,12 @@
-import clsx from 'clsx'
-import { NavLink } from 'react-router-dom'
+import clsx from 'clsx';
+import { NavLink } from 'react-router-dom';
 
-import css from './Header.module.css'
+import css from './Header.module.css';
+
 export default function Header() {
-
   const linkClass = ({ isActive }) => {
-    return clsx(css.link, isActive && css.active)
-  }
+    return clsx(css.link, isActive && css.active);
+  };
 
   return (
     <section className={css.section}>

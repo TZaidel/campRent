@@ -70,7 +70,7 @@ export default function CampItem(camp) {
           <p className={css.price}>€{price}.00</p>
 
           <button className={css.likeBtn} onClick={handleToggleFavorite}>
-            <svg width="24" height="24" className={css.iconLike}>
+            <svg width="16" height="16" className={css.iconLike}>
               <use xlinkHref={`${sprite}#icon-${isFavorite ? 'like-red' : 'like'}`}></use>
             </svg>
           </button>
