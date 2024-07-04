@@ -1,17 +1,18 @@
 .container {
-  /* max-width: 375px; */
-  padding: 0 15px;
+  min-width: 320px;
+  max-width: 768px;
   margin: 0 auto;
 }
 
 @media only screen and (min-width: 768px) {
   .container {
-    /* max-width: 768px; */
+    max-width: 768px;
+    padding: 0 15px;
   }
 }
 
 @media only screen and(min-width: 1440px) {
   .container {
-    /* max-width: 1440px; */
+    max-width: 1440px;
   }
 }

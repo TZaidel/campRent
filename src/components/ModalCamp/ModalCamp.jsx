@@ -58,7 +58,7 @@ export default function ModalCamp({ show, onHide, camp }) {
     toilet: 'wc',
   };
 
-  const [features, setFeatures] = useState(false);
+  const [features, setFeatures] = useState(true);
   const [comments, setComments] = useState(false);
 
   const reviewsCount = Array.isArray(reviews) ? reviews.length : 0;
