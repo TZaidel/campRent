@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchCamps } from '../../redux/operations.js';
+import Pagination from '../Pagination/Pagination'
 
 import CampItem from '../CampItem/CampItem';
 
@@ -15,6 +16,7 @@ export default function CampList({ items }) {
           <CampItem key={item._id} {...item} />
         ))}
       </ul>
+      <Pagination/>
     </section>
   );
 }
