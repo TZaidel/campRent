@@ -42,6 +42,7 @@ export default function CampItem(camp) {
     bathroom: 'shower',
     radio: 'radio',
     toilet: 'wc',
+    microwave: 'microwave',
   };
 
   const dispatch = useDispatch();
