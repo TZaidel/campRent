@@ -12,9 +12,27 @@
 
 .title {
   margin-bottom: 10px;
+  font-size: 16px;
 }
 
 .description {
+  font-size: 12px;
   color: var(--gray-color);
   max-width: 380px;
+}
+
+@media screen and (min-width: 768px) {
+  .iconLike {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .title {
+    margin-bottom: 8px;
+    font-size: 24px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
 }

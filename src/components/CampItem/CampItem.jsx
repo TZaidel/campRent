@@ -1,10 +1,10 @@
 import sprite from '/svg/sprite.svg';
-import css from './CampItem.module.css';
-
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleFavoriteItem } from '../../redux/campsSlice.js';
 import ModalCamp from '../ModalCamp/ModalCamp';
+
+import css from './CampItem.module.css';
 
 export default function CampItem(camp) {
   const { _id, gallery, name, price, rating, location, description, details, reviews, adults } =
@@ -67,7 +67,9 @@ export default function CampItem(camp) {
       <div className={css.mainInfoWrap}>
         <div className={css.nameWrap}>
           <h2 className={css.name}>{name}</h2>
-          <p className={css.price}>€{price}.00</p>
+          <p className={css.price}>
+            €{price}.00<span> / day</span>
+          </p>
 
           <button className={css.likeBtn} onClick={handleToggleFavorite}>
             <svg width="24" height="24" className={css.iconLike}>

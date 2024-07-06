@@ -15,3 +15,10 @@
 .error h2 {
   margin-bottom: 10px;
 }
+
+.container{
+
+min-height: 100vh;
+  position: relative;
+}
+

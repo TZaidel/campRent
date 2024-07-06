@@ -1,8 +1,5 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { fetchCamps } from '../../redux/operations.js';
-import sprite from '../../../public/svg/sprite.svg'
-
+import { useSelector } from 'react-redux';
+import sprite from '../../../public/svg/sprite.svg';
 import Header from '../../components/Header/Header';
 import CampList from '../../components/CampList/CampList';
 
@@ -20,7 +17,7 @@ export default function FavoritePage() {
           <CampList items={favoriteItems} />
         ) : (
           <div className={css.descriptionWrap}>
-            <svg width="200" height="200" className={css.iconLike}>
+            <svg width="100" height="100" className={css.iconLike}>
               <use xlinkHref={`${sprite}#icon-like`}></use>
             </svg>
             <h2 className={css.title}>No favorites yet</h2>

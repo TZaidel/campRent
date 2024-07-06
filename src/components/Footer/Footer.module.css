@@ -1,0 +1,20 @@
+.section {
+  background-color: var(--accent-color);
+  position: absolute;
+  bottom: -150px;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.section p {
+  color: var(--white-color);
+  padding: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .section {
+    bottom: -220px;
+  }
+}

@@ -62,6 +62,11 @@
   margin-left: auto;
 }
 
+.price span {
+  font-weight: 400;
+  font-size: 14px;
+}
+
 .infoWrap {
   display: flex;
   justify-content: space-between;
@@ -139,6 +144,10 @@
 
   .name {
     font-size: 20px;
+  }
+
+  .price span {
+    font-size: 12px;
   }
 
   .infoWrap {

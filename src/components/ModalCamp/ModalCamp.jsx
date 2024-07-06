@@ -3,6 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import BookingForm from '../BookingForm/BookingForm';
 import sprite from '/svg/sprite.svg';
 import { useState } from 'react';
+
 import css from './ModalCamp.module.css';
 
 export default function ModalCamp({ show, onHide, camp }) {
@@ -113,8 +114,10 @@ export default function ModalCamp({ show, onHide, camp }) {
             </div>
             <p className={css.price}>{price}.00€</p>
           </Modal.Title>
-          <Button onClick={onHide} className={css.xBtn}>
-            X
+          <Button onClick={onHide} className={css.closeBtn}>
+            <svg width="16" height="16" className={css.iconClose}>
+              <use xlinkHref={`${sprite}#icon-close`}></use>
+            </svg>
           </Button>
         </Modal.Header>
         <Modal.Body>
@@ -220,15 +223,9 @@ export default function ModalCamp({ show, onHide, camp }) {
                 </ul>
               )}
             </div>
-
             <BookingForm />
           </div>
         </Modal.Body>
-        {/* <Modal.Footer>
-          <Button onClick={onHide} className={css.closeBtn}>
-            Close
-          </Button>
-        </Modal.Footer> */}
       </div>
     </Modal>
   );

@@ -1,21 +1,15 @@
-.section{
+.section {
   margin: 60px auto auto;
 }
 
-.list{
+.list {
   max-width: 100%;
 }
 
-@media screen and (min-width: 768px){
-
-
-.list{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-}
-
-@media screen and (min-width: 1440px){
-
+@media screen and (min-width: 768px) {
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
