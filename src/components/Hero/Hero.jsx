@@ -20,7 +20,7 @@ export default function Hero() {
         <div className={css.embla__container}>
           {images.map(image => (
             <div className={css.embla__slide} key={image.id}>
-              <img src={image.imgUrl} className={css.img} />
+              <img src={image.imgUrl} className={css.img} alt="view of landscape" />
             </div>
           ))}
         </div>

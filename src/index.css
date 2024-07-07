@@ -37,7 +37,7 @@ ul {
 }
 
 a {
-  color: currentColor;
+  color: var(--main-color);
   text-decoration: none;
 }
 

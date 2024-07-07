@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Header from '../../components/Header/Header';
 import CampList from '../../components/CampList/CampList';
 import Footer from '../../components/Footer/Footer';
-import { LineWave } from 'react-loader-spinner';
+import { InfinitySpin } from 'react-loader-spinner';
 import { fetchCamps } from '../../redux/operations.js';
 import PaginationControlled from '../../components/PaginationControlled/PaginationControlled.jsx';
 
@@ -38,7 +38,7 @@ export default function CampPage() {
         <Header />
         {loading && (
           <div className={css.loading}>
-            <LineWave height="180" width="180" color="var(--accent-color)" />
+            <InfinitySpin height="180" width="180" color="var(--accent-color)" />
           </div>
         )}
         {error && (
