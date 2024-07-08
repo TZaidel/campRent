@@ -22,7 +22,7 @@ Displays a list of camps that the user has favorited by clicking the heart icon.
 
 ## Getting Started
 
-Make sure you have installed **Node.js** on your local development machine:
+Make sure you have installed **Node.js**
 
 ### Installation
 
