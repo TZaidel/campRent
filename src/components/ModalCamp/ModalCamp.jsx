@@ -24,7 +24,6 @@ export default function ModalCamp({ show, onHide, camp }) {
     tank,
     length,
   } = camp;
-  console.log(camp);
 
   const validKeys = new Set([
     'water',
@@ -178,30 +177,32 @@ export default function ModalCamp({ show, onHide, camp }) {
 
                   <table className={css.infoTable}>
                     <caption>Vehicle details</caption>
-                    <tr>
-                      <th>Form</th>
-                      <td>{form}</td>
-                    </tr>
-                    <tr>
-                      <th>Length</th>
-                      <td>{length}</td>
-                    </tr>
-                    <tr>
-                      <th>Width</th>
-                      <td>{width}</td>
-                    </tr>
-                    <tr>
-                      <th>Height</th>
-                      <td>{height}</td>
-                    </tr>
-                    <tr>
-                      <th>Tank</th>
-                      <td>{tank}</td>
-                    </tr>
-                    <tr>
-                      <th>Consumption</th>
-                      <td>{consumption}</td>
-                    </tr>
+                    <tbody>
+                      <tr>
+                        <th>Form</th>
+                        <td>{form}</td>
+                      </tr>
+                      <tr>
+                        <th>Length</th>
+                        <td>{length}</td>
+                      </tr>
+                      <tr>
+                        <th>Width</th>
+                        <td>{width}</td>
+                      </tr>
+                      <tr>
+                        <th>Height</th>
+                        <td>{height}</td>
+                      </tr>
+                      <tr>
+                        <th>Tank</th>
+                        <td>{tank}</td>
+                      </tr>
+                      <tr>
+                        <th>Consumption</th>
+                        <td>{consumption}</td>
+                      </tr>
+                    </tbody>
                   </table>
                 </div>
               )}

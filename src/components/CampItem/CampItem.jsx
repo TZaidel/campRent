@@ -120,7 +120,6 @@ export default function CampItem(camp) {
         <button
           className={css.moreBtn}
           onClick={() => {
-            console.log(_id);
             setModalShow(true);
           }}
         >

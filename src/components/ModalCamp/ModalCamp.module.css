@@ -85,7 +85,6 @@
 }
 
 .ratingWrap {
-  text-decoration: underline;
   margin-bottom: 8px;
 }
 
@@ -142,13 +141,16 @@
   font-size: 16px;
   font-weight: 600;
   background-color: transparent;
+  border-bottom: 1px solid #1018283d;
   transition: 0.3s ease-in-out;
 }
 
 .moreBtn:hover,
 .moreBtn:focus {
   color: var(--accent-color);
+  border-bottom: 1px solid var(--accent-color);
 }
+
 .moreBtnActive {
   color: var(--accent-color);
 }
