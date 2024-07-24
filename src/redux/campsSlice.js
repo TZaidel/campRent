@@ -1,4 +1,4 @@
-import { fetchCamps, toggleFavoriteCamp } from './operations';
+import { fetchCamps } from './operations';
 import { createSlice } from '@reduxjs/toolkit';
 
 const slice = createSlice({
@@ -25,7 +25,7 @@ const slice = createSlice({
   },
   extraReducers: builder =>
     builder
-      .addCase(fetchCamps.pending, (state, action) => {
+      .addCase(fetchCamps.pending, state => {
         state.loading = true;
         state.error = false;
       })
@@ -37,7 +37,7 @@ const slice = createSlice({
         }));
       })
 
-      .addCase(fetchCamps.rejected, (state, action) => {
+      .addCase(fetchCamps.rejected, state => {
         state.error = true;
         state.loading = false;
       }),

@@ -8,11 +8,11 @@ import { Link } from 'react-router-dom';
 export default function Hero() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
 
-  useEffect(() => {
-    if (emblaApi) {
-      console.log(emblaApi.slideNodes());
-    }
-  }, [emblaApi]);
+  // useEffect(() => {
+  //   if (emblaApi) {
+  //     console.log(emblaApi.slideNodes());
+  //   }
+  // }, [emblaApi]);
 
   return (
     <section className={css.embla}>
@@ -28,7 +28,8 @@ export default function Hero() {
       <div className={css.descriptionWrap}>
         <p className={css.description}>Open your eyes to a new view every morning. </p>
         <h1 className={css.title}>
-          Make your adventure seamless –{' '}
+          Make your adventure seamless
+        <br/>
           <Link to="/catalog" className={css.rent__link}>
             rent a camp
           </Link>

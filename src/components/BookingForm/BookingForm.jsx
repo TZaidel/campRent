@@ -21,7 +21,7 @@ export default function BookingForm() {
         validationSchema={validationSchema}
         onSubmit={async values => {
           await new Promise(r => setTimeout(r, 500));
-          alert(` Thank you for booking ${values.name}! 
+          alert(` Thank you for booking, ${values.name}! 
   If you like this project, please write a message to 8tzaidel@gmail.com.
   Have a nice day:)
             `);

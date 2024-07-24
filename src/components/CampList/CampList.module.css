@@ -1,5 +1,5 @@
 .section {
-  margin: 60px auto auto;
+  margin: 30px auto auto;
 }
 
 .list {
@@ -7,9 +7,25 @@
 }
 
 @media screen and (min-width: 768px) {
+  .section {
+    margin: 60px auto auto;
+  }
+
   .list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 0 15px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .section {
+    margin: 0 auto auto;
+    width: 60%;
+  }
+
+  .list {
+    justify-content: start;
   }
 }
