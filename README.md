@@ -1,8 +1,7 @@
 # Overview
 
 Welcome to the [CampRent](https://camp-rent.vercel.app/) project, a web application built with React
-and Vite. This application allows users to explore, rent, and favorite various camping vehicles and
-is adapted for mobile, tablets, and desktop devices.
+and Vite, adapted for mobile, tablets, and desktop devices. This application allows users to explore, rent, and favorite various camping vehicles.
 
 ## Pages
 
